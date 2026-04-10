@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Longest Route</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #eef2f3, #dfe9f3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e6fffa;
+            border-left: 4px solid #28a745;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .no-data {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .back {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>📏 Longest Route</h2>
+
+        {% if route %}
+            <div class="result">
+                {{ route.parent }} → {{ route.child }} <br>
+                Duration: {{ route.duration }}
+            </div>
+        {% else %}
+            <div class="no-data">
+                No routes available
+            </div>
+        {% endif %}
+
+        <a href="{% url 'web:index' %}" class="back">⬅ Back to Home</a>
+    </div>
+
+</body>
+</html>
